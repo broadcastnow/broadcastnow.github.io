@@ -105,7 +105,8 @@ function stream(form) {
 	    oneway        : true,
 	    broadcast     : true,
 	    origin        : 'pubsub.pubnub.com',
-            ssl           : true
+            ssl           : true,
+            uuid : 'broadcaster'
 	});
 	//phone.debug(function(m){ console.log(m); })
 	var ctrl = window.ctrl = CONTROLLER(phone);
