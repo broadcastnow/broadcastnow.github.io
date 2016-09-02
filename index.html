@@ -127,7 +127,7 @@ function stream(form) {
 	ctrl.streamPresence(function(m){
 		here_now.innerHTML=m.occupancy;
 		addLog(m.occupancy + " currently watching.");
-		ctrl.herNow(num+"-stream");
+		ctrl.herNow(streamName+"-stream");
 	});
 	return false;
 }
