@@ -18,6 +18,7 @@
 <!-- My Phone Number & Dial Areas -->
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 
+<div id="list-users-connected"></div>
     
 <div id="vid-box"></div>
     
@@ -127,6 +128,7 @@ function stream(form) {
 	ctrl.streamPresence(function(m){
 		here_now.innerHTML=m.occupancy;
 		addLog(m.occupancy + " currently watching.");
+		ctrl.herNow(num+"-stream");
 	});
 	return false;
 }
