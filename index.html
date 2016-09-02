@@ -128,6 +128,23 @@ function stream(form) {
 	ctrl.streamPresence(function(m){
 		here_now.innerHTML=m.occupancy;
 		addLog(m.occupancy + " currently watching.");
+		
+		
+		if(message.action == "join"){
+
+                    devices.push(m.uuid);
+                    $('#list-users-connected').html('<h3>lists : '+devices.length+' </h3>');
+                    //deviceList.append("<li text-align:center>" + message.uuid + "</li>");
+                    console.log(devices);
+                }
+                else{
+                    devices.splice(devices.indexOf(m.uuid), 1);
+                    $('#list-users-connected').html('<h3>lists : '+devices.length+' </h3>');
+                    //deviceList.find(message.uuid).remove();
+                }
+		
+		
+		
 		//ctrl.herNow(streamName+"-stream");
 	});
 	return false;
