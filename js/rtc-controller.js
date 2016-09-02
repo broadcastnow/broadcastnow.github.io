@@ -181,6 +181,19 @@ var CONTROLLER = window.CONTROLLER = function(phone){
 		});
 	};
 	
+	/*======================ADDED BY KH==============================*/
+	CONTROLLER.herNow = function(number){
+		pubnub.here_now({
+			channel : number,
+			callback : function(m){
+				console.log(m);  // TODO Comment out
+				//cb(m.occupancy != 0);
+				$('#list-users-connected').html('<h3>lists : '+m.uuids.length+' </h3>')
+			}
+		});
+	};
+	/*=============================================================*/
+	
 	CONTROLLER.isStreaming = function(number, cb){
 		CONTROLLER.isOnline(number+"-stream", cb);
 	};
