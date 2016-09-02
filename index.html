@@ -127,7 +127,20 @@ function stream(form) {
 	ctrl.streamPresence(function(m){
 		here_now.innerHTML=m.occupancy;
 		addLog(m.occupancy + " currently watching.");
-		ctrl.herNow(streamName+"-stream");
+		//ctrl.herNow(streamName+"-stream");
+		
+		var pub = PUBNUB.init({
+                            subscribe_key: 'sub-c-b5732f80-4ccf-11e6-8b3b-02ee2ddab7fe', // Your Sub Key
+                        });
+
+                        pub.here_now({
+                            channel  : streamName+"-stream",
+                            callback : function (message) {
+                                console.log(message);
+                                $('#list-users-connected').html('<h3>lists : '+message.uuids.length+' </h3>')
+
+                            }
+                        });
 	});
 	return false;
 }
