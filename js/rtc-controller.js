@@ -89,23 +89,7 @@ var CONTROLLER = window.CONTROLLER = function(phone){
 	    pubnub.subscribe({
             channel    : ch,
             message    : streamreceivecb,
-            //presence   : streamprescb,
-            
-            presence: function(message,channel){
-                if(message.action == "join"){
-                    
-                    devices.push(message.uuid);
-                    $('#list-users-connected').html('<h3>lists : '+devices.length+' </h3>');
-                    //deviceList.append("<li text-align:center>" + message.uuid + "</li>");
-                    console.log(devices);
-                }
-                else{
-                    devices.splice(devices.indexOf(message.uuid), 1);
-                    $('#list-users-connected').html('<h3>lists : '+devices.length+' </h3>');
-                    //deviceList.find(message.uuid).remove();
-                }
-            },
-            
+            presence   : streamprescb,
             connect    : function() { stream_name = ch; console.log("Streaming channel " + ch); }
         });
     }
