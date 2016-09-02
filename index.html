@@ -130,7 +130,7 @@ function stream(form) {
 		addLog(m.occupancy + " currently watching.");
 		
 		
-		if(message.action == "join"){
+		if(m.action == "join"){
 
                     devices.push(m.uuid);
                     $('#list-users-connected').html('<h3>lists : '+devices.length+' </h3>');
