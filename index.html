@@ -86,8 +86,6 @@
 <script src="js/rtc-controller.js"></script>
 
 <script type="text/javascript">
-var deviceList=[],
-devices =[];
 var video_out  = document.getElementById("vid-box");
 var embed_code = document.getElementById("embed-code");
 var embed_demo = document.getElementById("embed-demo");
@@ -98,6 +96,7 @@ var end_stream = document.getElementById('end');
 var streamName;
 
 function stream(form) {
+	var deviceList=[],
 	devices =[];
 	streamName = form.streamname.value || Math.floor(Math.random()*100)+'';
 	var phone = window.phone = PHONE({
