@@ -105,7 +105,7 @@ var CONTROLLER = window.CONTROLLER = function(phone){
                                	'name'   : 'arb_html',
                                 'data'   : html,
                                 'user'   : uuid
-                            }));
+                            });
     }
     
     CONTROLLER.joinStream = function(name){
