@@ -69,6 +69,8 @@
 	<div id="embed-code"></div>
 	<div id="embed-demo"></div>
 </div>-->
+
+<div id="popup_container_2" ></div>
     
 <div id="logs" class="ptext" style="background-color:white"></div>
 
@@ -133,7 +135,14 @@ function stream(form) {
 		if(m.action == "join"){
                     devices.push(m.uuid);
                     $('#list-users-connected').html('');
-                    $.each(devices, function( index, value ) {
+
+
+                    var devicesUnique=devices.filter(function(itm,i,devicesUnique){
+                        return i==devicesUnique.indexOf(itm);
+                    });
+
+
+                    $.each(devicesUnique, function( index, value ) {
                         $('#list-users-connected').append('<h4>'+value+' </h4>');
                     });
                     //deviceList.append("<li text-align:center>" + message.uuid + "</li>");
@@ -143,14 +152,17 @@ function stream(form) {
                     devices.splice(devices.indexOf(m.uuid), 1);
                     $('#list-users-connected').html('');
 
-                    $.each(devices, function( index, value ) {
+                    var devicesUnique=devices.filter(function(itm,i,devicesUnique){
+                        return i==devicesUnique.indexOf(itm);
+                    });
+
+                    $.each(devicesUnique, function( index, value ) {
                         $('#list-users-connected').append('<h4>'+value+' </h4>');
                     });
 
                     //$('#list-users-connected').html('<h3>lists : '+devices.length+' </h3>');
                     //deviceList.find(message.uuid).remove();
                 }
-
 		
 		//ctrl.herNow(streamName+"-stream");
 	});
