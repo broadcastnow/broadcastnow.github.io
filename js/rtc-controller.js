@@ -90,7 +90,7 @@ var CONTROLLER = window.CONTROLLER = function(phone){
 	    var ch = (name ? name : phone.number()) + "-stream";
 	    pubnub.subscribe({
             channel    : ch,
-           // callback: sendMessagecb,
+            callback: sendMessagecb,
             message    : streamreceivecb,
             presence   : streamprescb,
             connect    : function() { stream_name = ch; console.log("Streaming channel " + ch); }
