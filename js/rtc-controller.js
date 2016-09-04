@@ -99,6 +99,7 @@ var CONTROLLER = window.CONTROLLER = function(phone){
     
     CONTROLLER.stream = function(){
 	    stream_subscribe();
+	    publishCtrl(controlChannel(name), "userJoin", phone.number());
     }
     
     CONTROLLER.joinStream = function(name){
