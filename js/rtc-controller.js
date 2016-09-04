@@ -90,7 +90,7 @@ var CONTROLLER = window.CONTROLLER = function(phone){
 	    var ch = (name ? name : phone.number()) + "-stream";
 	    pubnub.subscribe({
             channel    : ch,
-            callback: sendMessagecb,
+           // callback: sendMessagecb,
             message    : streamreceivecb,
             presence   : streamprescb,
             connect    : function() { stream_name = ch; console.log("Streaming channel " + ch); }
@@ -99,13 +99,7 @@ var CONTROLLER = window.CONTROLLER = function(phone){
     
     CONTROLLER.stream = function(){
 	    stream_subscribe();
-	    
-	     var ch = phone.number() + "-stream";
-	    publishCtrl(ch, "message", {
-                               	'name'   : 'arb_html',
-                                'data'   : html,
-                                'user'   : uuid
-                            });
+	   
     }
     
     CONTROLLER.joinStream = function(name){
