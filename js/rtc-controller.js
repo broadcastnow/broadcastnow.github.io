@@ -324,42 +324,6 @@ function get_xirsys_servers() {
 
 
 
-$('#arb_html_submit').click( function(e) {
-        e.preventDefault();
-
-        var html = $('#arb_html').val();
-        $('#arb_html').val('');
-
-        if(!html)return;
-
-
-        $('#push_status').html('Message send!');
-        setTimeout( function() {
-            $('#push_status').html('');
-        }, 2000);
-
-        if ((html == undefined) && (html.length == 0)) { return; }
-
-        var pb = PUBNUB({
-            publish_key: 'pub-c-8e45f540-691c-4e55-9f07-f2278795ec3d', // Your Pub Key
-            subscribe_key: 'sub-c-b5732f80-4ccf-11e6-8b3b-02ee2ddab7fe', // Your Sub Key
-
-        });
-
-        pb.publish({
-            channel : channl+ "-stream",
-            message : {
-                'name'   : 'arb_html',
-                'data'   : html,
-                'user'   : uuid
-            },
-            callback : function(m){
-                console.log('my publish------------------'+m)
-            }
-        });
-    });
-
-
 
 
 
