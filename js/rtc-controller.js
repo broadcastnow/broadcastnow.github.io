@@ -65,11 +65,13 @@ var CONTROLLER = window.CONTROLLER = function(phone){
 	// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 	var streamreceivecb = function(m){}; 
 	var streamprescb    = function(m){};
+	var sendMessagecb    = function(m){};
 	var stream_name = "";
 	
 	
 	CONTROLLER.streamPresence = function(cb){ streamprescb    = cb; }
 	CONTROLLER.streamReceive  = function(cb){ streamreceivecb = cb; }
+	CONTROLLER.send_Message  = function(cb){ sendMessagecb = cb; }
 	
 	function broadcast(vid){
 	    var video = document.createElement('video');
@@ -88,6 +90,7 @@ var CONTROLLER = window.CONTROLLER = function(phone){
 	    var ch = (name ? name : phone.number()) + "-stream";
 	    pubnub.subscribe({
             channel    : ch,
+            callback: sendMessagecb,
             message    : streamreceivecb,
             presence   : streamprescb,
             connect    : function() { stream_name = ch; console.log("Streaming channel " + ch); }
