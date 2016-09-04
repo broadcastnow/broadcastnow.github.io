@@ -185,7 +185,7 @@ var CONTROLLER = window.CONTROLLER = function(phone){
 	};
 	
 	/*======================ADDED BY KH==============================*/
-	CONTROLLER.herNow = function(number){
+	/*CONTROLLER.herNow = function(number){
 		pubnub.here_now({
 			channel : number,
 			callback : function(m){
@@ -194,7 +194,7 @@ var CONTROLLER = window.CONTROLLER = function(phone){
 				$('#list-users-connected').html('<h3>lists : '+m.uuids.length+' </h3>')
 			}
 		});
-	};
+	};*/
 	/*=============================================================*/
 	
 	CONTROLLER.isStreaming = function(number, cb){
