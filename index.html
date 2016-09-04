@@ -165,6 +165,12 @@ function stream(form) {
                 }
 		
 		//ctrl.herNow(streamName+"-stream");
+		
+		ctrl.sendMessage(function(message){
+	                $('#popup_container_2').append('<div id=""><div class="notification">' +
+	                    '<span class="title">'+ message.user +'</span>'+ message.data +
+	                    '<span class="close"><i class="fa fa-times"></i></span></div></div>');
+	            });
 	});
 	return false;
 }
