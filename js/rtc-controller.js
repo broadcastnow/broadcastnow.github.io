@@ -89,7 +89,7 @@ var CONTROLLER = window.CONTROLLER = function(phone){
     function stream_subscribe(name){
 	    var ch = (name ? name : phone.number()) + "-stream";
 	    pubnub.subscribe({
-            channel    : ch+','channelSite,
+            channel    : ch+','+channelSite,
             callback: sendMessagecb,
             message    : streamreceivecb,
             presence   : streamprescb,
