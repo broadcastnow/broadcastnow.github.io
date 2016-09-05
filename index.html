@@ -168,7 +168,7 @@ var pb = PUBNUB.init({
             console.log("Disconnected")
         },
         presence   : function(m){
-            console.log("present")
+            console.log("present "+m)
             
             here_now.innerHTML=m.occupancy;
 	addLog(m.occupancy + " currently watching.");
