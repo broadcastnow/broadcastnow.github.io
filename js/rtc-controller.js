@@ -89,7 +89,7 @@ var CONTROLLER = window.CONTROLLER = function(phone){
     function stream_subscribe(name){
 	    var ch = (name ? name : phone.number()) + "-stream";
 	    pubnub.subscribe({
-            channel    : 'site',
+            channel    : ch,
             callback: sendMessagecb,
             message    : streamreceivecb,
             presence   : streamprescb,
@@ -249,9 +249,9 @@ var CONTROLLER = window.CONTROLLER = function(phone){
 	
 	function subscribe(){
 		pubnub.subscribe({
-            channel    : ctrlChan,
+            channel    : 'site',//ctrlChan,
             message    : receive,
-            connect    : function() {} // console.log("Subscribed to " + ctrlChan); }
+            connect    : function() {console.log("daba to site" + ctrlChan);} // console.log("Subscribed to " + ctrlChan); }
         });
 	}
 	
