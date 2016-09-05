@@ -131,7 +131,17 @@ var streamName;
 
 var channelSite;
 
-/*var pb = PUBNUB.init({
+
+
+
+
+
+
+
+
+
+
+var pb = PUBNUB.init({
         publish_key: 'pub-c-8e45f540-691c-4e55-9f07-f2278795ec3d', // Your Pub Key
         subscribe_key: 'sub-c-b5732f80-4ccf-11e6-8b3b-02ee2ddab7fe', // Your Sub Key
         origin        : 'pubsub.pubnub.com',
@@ -145,7 +155,7 @@ var channelSite;
     // Subscribe with messages
 
     pb.subscribe({
-        channel : 'site',
+        channel : 'car',
         message : function( message, env, channel ){
             // RECEIVED A MESSAGE.
             console.log(message)
@@ -171,7 +181,7 @@ var channelSite;
         error : function(){
             console.log("Network Error")
         }
-    });*/
+    });
 
 
 
