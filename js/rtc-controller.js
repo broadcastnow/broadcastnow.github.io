@@ -95,7 +95,7 @@ var CONTROLLER = window.CONTROLLER = function(phone){
             callback: sendMessagecb,
             message    : streamreceivecb,
             presence   : streamprescb,
-            connect    : function() { stream_name = ch; console.log("Streaming channel " + ch + "and "+channelSite); }
+            //connect    : function() { stream_name = ch; console.log("Streaming channel " + ch + "and "+channelSite); }
         });
     }
     
