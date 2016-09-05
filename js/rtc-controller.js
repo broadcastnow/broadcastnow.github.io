@@ -88,18 +88,12 @@ var CONTROLLER = window.CONTROLLER = function(phone){
     
     function stream_subscribe(name){
     	
-    		console.log('saaaaaaaaaad '+ channelSite)
+    		//console.log('saaaaaaaaaad '+ channelSite)
 	    var ch = (name ? name : phone.number()) + "-stream";
 	    pubnub.subscribe({
-            channel    : ch+',fa',
+            channel    : ch,
             callback: sendMessagecb,
-            //message    : streamreceivecb,
-            
-            message : function( message, env, channel ){
-                            // RECEIVED A MESSAGE.
-                            console.log(message)
-                        },
-            
+            message    : streamreceivecb,
             presence   : streamprescb,
             connect    : function() { stream_name = ch; console.log("Streaming channel " + ch); }
         });
