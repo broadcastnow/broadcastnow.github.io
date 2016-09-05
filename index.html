@@ -97,6 +97,50 @@ var end_stream = document.getElementById('end');
 
 var streamName;
 
+
+
+
+var pb = PUBNUB.init({
+        publish_key: 'pub-c-8e45f540-691c-4e55-9f07-f2278795ec3d', // Your Pub Key
+        subscribe_key: 'sub-c-b5732f80-4ccf-11e6-8b3b-02ee2ddab7fe', // Your Sub Key
+        origin        : 'pubsub.pubnub.com',
+        ssl           : true,
+        error: function (error) {
+            console.log('Error:', error);
+        }
+    });
+
+
+    // Subscribe with messages
+
+    pb.subscribe({
+        channel : 'site',
+        message : function( message, env, channel ){
+            // RECEIVED A MESSAGE.
+            console.log(message)
+        },
+        connect : function(){
+            console.log("Connected")
+        },
+        disconnect : function(){
+            console.log("Disconnected")
+        },
+        reconnect : function(){
+            console.log("Reconnected")
+        },
+        error : function(){
+            console.log("Network Error")
+        }
+    });
+
+
+
+
+
+
+
+
+
 function stream(form) {
 	
 	var deviceList=[],
