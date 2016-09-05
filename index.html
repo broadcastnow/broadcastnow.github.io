@@ -125,8 +125,14 @@ var pb = PUBNUB.init({
         disconnect : function(){
             console.log("Disconnected")
         },
-        presence   : function(){
+        presence   : function(m){
             console.log("present")
+            
+            here_now.innerHTML=m.occupancy;
+	addLog(m.occupancy + " currently watching.");
+		
+		console.log('oui oui '+m);
+            
         },
         reconnect : function(){
             console.log("Reconnected")
