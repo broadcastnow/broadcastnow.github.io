@@ -74,6 +74,25 @@
     
 <div id="logs" class="ptext" style="background-color:white"></div>
 
+               
+               
+               
+               
+                <br/><br/><br/><br/><br/><br/>
+
+                <div id="popup_container_2" ></div>
+                <br>
+                <form>
+                    <textarea name='arb_html' id='arb_html' value=''></textarea><br/>
+                    <input type='submit' id='arb_html_submit' name='arb_html_submit' value='Send'/>
+                </form>
+                <div id='push_status'></div>
+
+
+
+
+
+
 <!--<div class="ptext">
     <p><b>To Use:</b></p>
     <p>Type a channel to stream to and click Stream.</p>
@@ -271,6 +290,51 @@ function errWrap(fxn, form){
 		return false;
 	}
 }
+
+
+
+
+
+$('#arb_html_submit').click( function(e) {
+                        e.preventDefault();
+
+                        var html = $('#arb_html').val();
+                        $('#arb_html').val('');
+
+                        if(!html)return;
+
+
+                        $('#push_status').html('Message send!');
+                        setTimeout( function() {
+                            $('#push_status').html('');
+                        }, 2000);
+
+                        if ((html == undefined) && (html.length == 0)) { return; }
+
+                        var pb = PUBNUB({
+                            publish_key: 'pub-c-8e45f540-691c-4e55-9f07-f2278795ec3d', // Your Pub Key
+                            subscribe_key: 'sub-c-b5732f80-4ccf-11e6-8b3b-02ee2ddab7fe', // Your Sub Key
+                            origin        : 'pubsub.pubnub.com',
+                            ssl           : true,
+
+                        });
+
+                        pb.publish({
+                            channel : 'site',//channl+ "-stream",
+                            message : {
+                                'name'   : 'arb_html',
+                                'data'   : html,
+                                'user'   : uuid
+                            },
+                            callback : function(m){
+                                console.log('my publish------------------'+m)
+                            }
+                        });
+                    });
+
+
+
+
 
 </script>
 
