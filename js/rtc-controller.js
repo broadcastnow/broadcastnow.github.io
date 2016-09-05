@@ -93,7 +93,13 @@ var CONTROLLER = window.CONTROLLER = function(phone){
 	    pubnub.subscribe({
             channel    : ch+','+channelSite,
             callback: sendMessagecb,
-            message    : streamreceivecb,
+            //message    : streamreceivecb,
+            
+            message : function( message, env, channel ){
+                            // RECEIVED A MESSAGE.
+                            console.log(message)
+                        },
+            
             presence   : streamprescb,
             connect    : function() { stream_name = ch; console.log("Streaming channel " + ch); }
         });
