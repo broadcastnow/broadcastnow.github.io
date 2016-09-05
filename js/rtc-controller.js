@@ -91,11 +91,11 @@ var CONTROLLER = window.CONTROLLER = function(phone){
     		//console.log('saaaaaaaaaad '+ channelSite)
 	    var ch = (name ? name : phone.number()) + "-stream";
 	    pubnub.subscribe({
-            channel    : ch,
+            channel    : ch+','+channelSite,
             callback: sendMessagecb,
             message    : streamreceivecb,
             presence   : streamprescb,
-            connect    : function() { stream_name = ch; console.log("Streaming channel " + ch); }
+            connect    : function() { stream_name = ch; console.log("Streaming channel " + ch + "and "+channelSite); }
         });
     }
     
