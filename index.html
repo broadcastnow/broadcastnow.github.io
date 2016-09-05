@@ -157,31 +157,12 @@ var pb = PUBNUB.init({
 
     pb.subscribe({
         channel : 'car',
-        message : function( message, env, channel ){
-            // RECEIVED A MESSAGE.
-            console.log(message)
-        },
-        connect : function(){
-            console.log("Connected")
-        },
-        disconnect : function(){
-            console.log("Disconnected")
-        },
-        presence   : function(m){
-            console.log("present "+m)
-            
-            here_now.innerHTML=m.occupancy;
-	addLog(m.occupancy + " currently watching.");
-		
-		console.log('oui oui '+m);
-            
-        },
-        reconnect : function(){
-            console.log("Reconnected")
-        },
-        error : function(){
-            console.log("Network Error")
-        }
+       presence : function(m){
+        console.log(m)
+	    },
+	    message : function(m){
+	        console.log(m)
+	    }
     });
 
 
