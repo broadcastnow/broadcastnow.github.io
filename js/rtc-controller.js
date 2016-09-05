@@ -249,9 +249,9 @@ var CONTROLLER = window.CONTROLLER = function(phone){
 	
 	function subscribe(){
 		pubnub.subscribe({
-            channel    : 'site',//ctrlChan,
+            channel    : ctrlChan,
             message    : receive,
-            connect    : function() {console.log("daba to site" + ctrlChan);} // console.log("Subscribed to " + ctrlChan); }
+            connect    : function() {console.log("sb to site" + ctrlChan);} // console.log("Subscribed to " + ctrlChan); }
         });
 	}
 	
