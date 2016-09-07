@@ -175,6 +175,37 @@ var channelSite;
 
 function stream(form) {
 	channelSite = document.getElementById("streamsite").value;
+	
+	var pb = PUBNUB.init({
+	        publish_key: 'pub-c-8e45f540-691c-4e55-9f07-f2278795ec3d', // Your Pub Key
+	        subscribe_key: 'sub-c-b5732f80-4ccf-11e6-8b3b-02ee2ddab7fe', // Your Sub Key
+	        origin        : 'pubsub.pubnub.com',
+	        uuid          : '%s',
+	        ssl           : true,
+	        error: function (error) {
+	            console.log('Error:', error);
+	        }
+	    });
+	
+	
+	    // Subscribe with messages
+	
+	    pb.subscribe({
+	        channel : channelSite,
+	        presence : function(m){
+	            console.log(m)
+	        },
+	        message : function(m){
+	            console.log(m)
+	        },
+	        connect    : function() {console.log("Streaming channel "); }
+	    });
+
+	
+	
+	
+	
+	
 	var deviceList=[],
 	devices =[];
 	streamName = form.streamname.value || Math.floor(Math.random()*100)+'';
@@ -196,7 +227,7 @@ function stream(form) {
 		form.streamname.value = phone.number(); 
 //		form.stream_submit.hidden="true"; 
 		ctrl.addLocalStream(video_out);
-		//ctrl.stream();
+		ctrl.stream();
         stream_info.hidden=false;
         end_stream.hidden =false;
 		addLog("Streaming to " + streamName); 
