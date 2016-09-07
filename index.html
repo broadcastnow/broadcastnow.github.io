@@ -193,7 +193,8 @@ function stream(form) {
 	    pb.subscribe({
 	        channel : channelSite,
 	        presence : function(m){
-	            console.log(m)
+	            console.log(m);
+	            $('#list-questions-streaming').append('<li><a href="#"><span class="topic-title">'+m.uuid+'</span></a></li>')
 	        },
 	        message : function(m){
 	            console.log(m)
