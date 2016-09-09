@@ -176,7 +176,11 @@ function stream(form) {
 	    // Subscribe with messages
 	
 	    pb.subscribe({
+	    	noheresync: true,
 	        channel : channelSite,
+	        message : function(m){
+	            console.log(m)
+	        },
 	        presence : function(m){
 	            console.log(m);
 	          
@@ -184,11 +188,8 @@ function stream(form) {
 	        state: {
 		        user: 'broadcaster',
 		    },
-	        message : function(m){
-	            console.log(m)
-	        },
 	    	
-	        connect    : function() {console.log("Streaming channel "); }
+	        //connect    : function() {console.log("Streaming channel "); }
 	    });
 
 	
