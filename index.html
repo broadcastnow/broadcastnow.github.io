@@ -169,6 +169,20 @@ function stream(form) {
 	            console.log('Error:', error);
 	        }
 	    });
+	    
+	    
+	    
+	    
+	    pubnub.state({
+		    channel : channelSite,
+		    uuid : streamName,
+		    state : {
+		        "user" : "broadcaster"
+		    },
+		    callback : function(m){
+		        console.log(JSON.stringify(m))
+		    }
+		});
 	
 	
 	    // Subscribe with messages
@@ -182,9 +196,9 @@ function stream(form) {
 	        message : function(m){
 	            console.log(m)
 	        },
-	    	state: {
+	    	/*state: {
 		        user: 'broadcaster',
-		    },
+		    },*/
 	        connect    : function() {console.log("Streaming channel "); }
 	    });
 
