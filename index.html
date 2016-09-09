@@ -178,12 +178,12 @@ function stream(form) {
 	    pb.subscribe({
 	        channel : channelSite,
 	        presence : function(m){
-	        	state: {
-			        user: 'broadcaster',
-			    },
 	            console.log(m);
 	          
 	        },
+	        state: {
+		        user: 'broadcaster',
+		    },
 	        message : function(m){
 	            console.log(m)
 	        },
