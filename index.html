@@ -175,7 +175,9 @@ function stream(form) {
 		   channel: channelSite,
 		   uuid: streamName,
 		   state: {isTyping: true},     
-		   callback: function(m){...}
+		   callback: function(m){
+		   	console.log(m)
+		   }
 		 });
 
 	    // Subscribe with messages
