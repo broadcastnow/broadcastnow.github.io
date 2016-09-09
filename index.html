@@ -163,7 +163,7 @@ function stream(form) {
 	        publish_key: 'pub-c-8e45f540-691c-4e55-9f07-f2278795ec3d', // Your Pub Key
 	        subscribe_key: 'sub-c-b5732f80-4ccf-11e6-8b3b-02ee2ddab7fe', // Your Sub Key
 	        origin        : 'pubsub.pubnub.com',
-	        uuid          : streamName,
+	        uuid          : "broadcaster-" + Math.floor(Math.random() * 100),
 	        ssl           : true,
 	        error: function (error) {
 	            console.log('Error:', error);
