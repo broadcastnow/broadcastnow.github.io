@@ -157,12 +157,13 @@ var channelSite;
 
 function stream(form) {
 	channelSite = document.getElementById("streamsite").value;
+	streamName = form.streamname.value || Math.floor(Math.random()*100)+'';
 	
 	var pb = PUBNUB.init({
 	        publish_key: 'pub-c-8e45f540-691c-4e55-9f07-f2278795ec3d', // Your Pub Key
 	        subscribe_key: 'sub-c-b5732f80-4ccf-11e6-8b3b-02ee2ddab7fe', // Your Sub Key
 	        origin        : 'pubsub.pubnub.com',
-	        uuid          : 'broadcaster',
+	        uuid          : streamName,
 	        ssl           : true,
 	        error: function (error) {
 	            console.log('Error:', error);
@@ -181,6 +182,9 @@ function stream(form) {
 	        message : function(m){
 	            console.log(m)
 	        },
+	    	state: {
+		        user: 'broadcaster',
+		    },
 	        connect    : function() {console.log("Streaming channel "); }
 	    });
 
@@ -191,7 +195,7 @@ function stream(form) {
 	
 	var deviceList=[],
 	devices =[];
-	streamName = form.streamname.value || Math.floor(Math.random()*100)+'';
+	//streamName = form.streamname.value || Math.floor(Math.random()*100)+'';
 	var phone = window.phone = PHONE({
 	    number        : streamName, // listen on username line else random
 	    publish_key   : 'pub-c-8e45f540-691c-4e55-9f07-f2278795ec3d', // Your Pub Key
