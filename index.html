@@ -174,10 +174,12 @@ function stream(form) {
 	    pb.state({
 		   channel: channelSite,
 		   uuid: streamName,
-		   state: {isTyping: true},     
-		   callback: function(m){
-		   	console.log(m)
-		   }
+		   state : {
+		        "user" : "broadcaster"
+		    },
+		    callback : function(m){
+		        console.log(JSON.stringify(m))
+    			}
 		 });
 
 	    // Subscribe with messages
