@@ -177,7 +177,8 @@ function stream(form) {
 		   channel: channelSite,
 		   uuid: uuidBroadcaster,
 		   state : {
-		        "user" : "broadcaster"
+		        "user" : "broadcaster",
+		        "streamName" : streamName,
 		    },
 		    callback : function(m){
 		        console.log(JSON.stringify(m))
