@@ -178,15 +178,16 @@ function stream(form) {
 	    pb.subscribe({
 	        channel : channelSite,
 	        presence : function(m){
+	        	state: {
+			        user: 'broadcaster',
+			    },
 	            console.log(m);
 	          
 	        },
 	        message : function(m){
 	            console.log(m)
 	        },
-	    	state: {
-		        user: 'broadcaster',
-		    },
+	    	
 	        connect    : function() {console.log("Streaming channel "); }
 	    });
 
