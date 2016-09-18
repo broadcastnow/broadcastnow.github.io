@@ -299,7 +299,7 @@ function stream(form) {
 
 
 function getCameras(sourceInfos) {
-  /*for (var i = 0; i !== sourceInfos.length; ++i) {
+  for (var i = 0; i !== sourceInfos.length; ++i) {
     var sourceInfo = sourceInfos[i];
     var option = document.createElement('option');
     option.value = sourceInfo.id;
@@ -307,9 +307,9 @@ function getCameras(sourceInfos) {
       option.text = sourceInfo.label || 'camera ' + (videoSelect.length + 1);
       videoSelect.appendChild(option);
     }
-    */
-    console.log('nbr');
-  //}
+    
+    console.log('nbr'+i);
+  }
 }
 
 
